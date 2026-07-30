@@ -12,6 +12,20 @@ print(f"I have {experience} years of experience.")
 print(f"My domain is {domain}")
 print(f"My long-term goal is {goal}")
 
+# Customer Information
+customer_name = "John Smith"
+meter_id = "MTR100245"
+city = "Philadelphia"
+monthly_usage = 842
+bill_amount = 126.35
+solar_customer = True
+
+# print the type of data
+print(type(customer_name))
+print(type(monthly_usage))
+print(type(bill_amount))
+print(type(solar_customer))
+
 # Reassigning a variable
 experience = 16
 print(f"Updated experience: {experience}")
