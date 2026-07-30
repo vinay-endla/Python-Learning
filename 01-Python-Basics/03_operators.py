@@ -8,7 +8,7 @@ FIXED_CHARGE = 25
 energy_charge = monthly_usage * RATE_PER_KWH
 total_charge = energy_charge + FIXED_CHARGE
 
-print(f"{'*='*40}")
+print(f"{'='*40}")
 print(f"Customer: {customer_name}")
 print(f"Monthly Usage    : {monthly_usage} kWh")
 print(f"Energy Charge    : ${energy_charge:.2f}")
