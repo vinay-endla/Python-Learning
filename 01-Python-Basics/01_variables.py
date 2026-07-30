@@ -65,17 +65,33 @@ print(f"Converted value: {num_int + 8}")
 # Invalid names: 2name, my-name
 
 # Different variable types
-text_message = "Hello, Python!"   # string
-count = 7                          # integer
-is_active = True                   # boolean
-price = 19.99                      # float
+# String: text data
+text_message = "Hello, Python!"
+# Integer: whole numbers
+count = 7
+# Boolean: True or False
+is_active = True
+# Float: decimal numbers
+price = 19.99
 
 print(f"Text: {text_message}")
 print(f"Count: {count}")
 print(f"Active: {is_active}")
 print(f"Price: {price}")
 
+# Quick explanation of types
+print("Strings are used for text.")
+print("Integers are used for whole numbers.")
+print("Booleans are used for True/False values.")
+print("Floats are used for decimal values.")
+
 # Simple practice exercise
 favorite_food = "pizza"
 favorite_color = "blue"
 print(f"My favorite food is {favorite_food} and my favorite color is {favorite_color}.")
+
+# Mini quiz challenge
+print("Quiz: What type is 'banana'?")
+print("Answer: It is a string.")
+print("Quiz: What type is 100?")
+print("Answer: It is an integer.")
