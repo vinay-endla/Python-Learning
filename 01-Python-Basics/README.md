@@ -1,19 +1,65 @@
-# Module 1 - Python Basics
+# Python Learning Journey
 
-## Topics
+Author: Vinay Kumar Endla
 
-- Variables
-- Data Types
-- print()
-- f-strings
+## Objective
 
-## Goal
+This repository documents my journey of learning Python while applying it to real-world utility industry problems.
 
-Learn the fundamentals of Python and understand how Python differs from Java.
+Rather than solving isolated programming exercises, this repository focuses on building enterprise-style applications inspired by Oracle Utilities and the electric utility industry.
 
-## Progress
+## Repository Structure
 
-- [ ] Variables
-- [ ] Data Types
-- [ ] print()
-- [ ] f-strings
+```
+Python-Learning
+│
+├── 01-Python-Basics/
+├── Exercises/
+├── Mini-Projects/
+├── Resources/
+└── README.md
+```
+
+## Learning Roadmap
+
+- ✅ Variables
+- ✅ Data Types
+- ✅ Operators
+- ✅ Conditional Statements
+- ⏳ Loops
+- ⏳ Functions
+- ⏳ Collections
+- ⏳ Object-Oriented Programming
+- ⏳ File Handling
+- ⏳ Exception Handling
+- ⏳ Modules & Packages
+
+## Planned Projects
+
+- Utility Billing System
+- Smart Meter Analytics
+- Energy Usage Dashboard
+- AI-powered Utility Assistant
+
+## Technologies
+
+- Python
+- Git
+- GitHub
+- Visual Studio Code
+
+Future additions:
+
+- Pandas
+- NumPy
+- Matplotlib
+- SQL
+- FastAPI
+- LangChain
+- OpenAI APIs
+- Machine Learning
+- Agentic AI
+
+---
+
+This repository represents a continuous learning journey toward building AI-powered solutions for the utility industry.
