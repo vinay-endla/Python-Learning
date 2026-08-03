@@ -22,46 +22,6 @@ Topics Covered:
 - Calling functions from other modules
 - Multi-file Python applications
 
-Project Structure:
-
-```
-02-Intermediate-Python/
-│
-├── billing.py
-├── customers.py
-├── main.py
-├── Notes.md
-└── README.md
-```
-
-Import Styles Learned:
-
-```python
-import billing
-```
-
-```python
-import billing as bill
-```
-
-```python
-from billing import calculate_bill
-```
-
-```python
-from billing import (
-    calculate_bill,
-    print_invoice,
-)
-```
-
-```python
-from billing import (
-    calculate_bill as calc_bill,
-    print_invoice as invoice,
-)
-```
-
 Files:
 
 - billing.py
@@ -70,9 +30,27 @@ Files:
 
 ---
 
+## 02. Variable Scope
+
+Topics Covered:
+
+- Global variables
+- Local variables
+- Variable shadowing
+- Function scope
+- Parameter scope
+- The `global` keyword
+- Why global variables are generally avoided
+- Passing data through function parameters
+
+Files:
+
+- 02_scope.py
+
+---
+
 # Upcoming Lessons
 
-- Variable Scope
 - Tuples (Deep Dive)
 - Sets
 - Exception Handling

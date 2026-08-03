@@ -2,59 +2,33 @@
 
 ---
 
-# Modules
+# 1. Modules
 
 A module is simply a Python (.py) file.
 
-Modules allow us to organize code into reusable, maintainable components.
-
-Instead of one huge file, applications are divided into multiple modules based on responsibility.
+Modules help organize applications into reusable components.
 
 Example:
 
-```
 billing.py
 customers.py
-reports.py
-payments.py
 main.py
-```
 
 ---
 
-# Why Modules?
-
-Modules help:
-
-- Organize code
-- Improve readability
-- Encourage code reuse
-- Simplify maintenance
-- Separate responsibilities
-
-Functions organize a large function.
-
-Modules organize a large application.
-
----
-
-# Import Entire Module
+## Import Entire Module
 
 ```python
 import billing
 
 billing.calculate_bill()
-billing.say_hello()
 ```
 
-Advantages:
-
-- Clear where functions come from.
-- Preferred when using many functions from the same module.
+Preferred when using many functions from the same module.
 
 ---
 
-# Module Alias
+## Module Alias
 
 ```python
 import billing as bill
@@ -62,9 +36,9 @@ import billing as bill
 bill.calculate_bill()
 ```
 
-Useful when module names are long.
+Common for long module names.
 
-Industry examples:
+Examples:
 
 ```python
 import pandas as pd
@@ -74,7 +48,7 @@ import matplotlib.pyplot as plt
 
 ---
 
-# Import Specific Functions
+## Import Specific Function
 
 ```python
 from billing import calculate_bill
@@ -82,28 +56,22 @@ from billing import calculate_bill
 calculate_bill()
 ```
 
-Advantages:
-
-- Less typing.
-- Good when only a few functions are needed.
+Useful when importing only one or two functions.
 
 ---
 
-# Import Multiple Functions
+## Import Multiple Functions
 
 ```python
 from billing import (
     calculate_bill,
-    say_hello,
     print_invoice,
 )
 ```
 
-Preferred formatting when importing several functions.
-
 ---
 
-# Function Aliases
+## Function Aliases
 
 ```python
 from billing import (
@@ -112,14 +80,11 @@ from billing import (
 )
 ```
 
-Useful for:
-
-- Shorter names
-- Avoiding naming conflicts
+Useful for readability and avoiding naming conflicts.
 
 ---
 
-# Avoid
+## Avoid
 
 ```python
 from billing import *
@@ -127,55 +92,124 @@ from billing import *
 
 Reason:
 
-- Imports everything.
-- Makes code harder to understand.
-- Can create naming conflicts.
+- Imports everything
+- Can create name collisions
+- Makes code harder to understand
 
 ---
 
-# Common Error
+# 2. Variable Scope
 
-```
-NameError:
-name 'billing' is not defined
-```
+---
 
-Cause:
+## Global Scope
 
-Attempting to use a module before importing it.
-
-Example:
+Variables created outside functions.
 
 ```python
-billing.calculate_bill()
+customer = "John Smith"
 ```
 
-Correct:
+Accessible throughout the module unless shadowed.
+
+---
+
+## Local Scope
+
+Variables created inside functions.
 
 ```python
-import billing
+def update_customer():
+    customer = "Mary Johnson"
+```
 
-billing.calculate_bill()
+Exist only while the function is executing.
+
+After the function finishes, they are destroyed.
+
+---
+
+## Variable Shadowing
+
+A local variable with the same name as a global variable temporarily hides the global variable inside that function.
+
+```python
+customer = "John"
+
+def func():
+    customer = "Mary"
+```
+
+Inside `func()`, Python uses `"Mary"`.
+
+Outside, Python still uses `"John"`.
+
+---
+
+## Scope Search Order
+
+Python looks for variables in this order:
+
+1. Local scope
+2. Global scope
+
+If not found:
+
+```
+NameError
 ```
 
 ---
 
-# Professional Recommendation
-
-For your own project modules:
+## Parameters Create Local Variables
 
 ```python
-import billing
-import customers
-import reports
+def print_customer(customer):
+    print(customer)
 ```
 
-Then:
+The parameter `customer` is a local variable.
+
+Every function call gets its own local scope.
+
+---
+
+## Each Function Has Its Own Local Scope
+
+Functions cannot access another function's local variables.
+
+Each function receives only:
+
+- Its own local variables
+- Global variables
+
+---
+
+## global Keyword
 
 ```python
-billing.calculate_bill()
-customers.find_customer()
-reports.generate_report()
+customer = "John"
+
+def update():
+    global customer
+    customer = "Mary"
 ```
 
-This clearly shows which module owns each function.
+The `global` keyword tells Python to modify the global variable instead of creating a local one.
+
+---
+
+## Professional Recommendation
+
+Prefer passing data through parameters and returning results.
+
+Avoid using `global` unless absolutely necessary.
+
+Good:
+
+```python
+def update_customer(customer):
+    return "Mary Johnson"
+```
+
+Better design than modifying global state.
