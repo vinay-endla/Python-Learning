@@ -1,32 +1,61 @@
 # 02 - Intermediate Python
 
-This module focuses on writing Python the way professional software projects are organized.
+This module focuses on writing Python in a more structured, reusable, and professional way.
+
+The lessons build on Python fundamentals and introduce concepts used in larger applications, data processing, enterprise software, and future AI projects.
 
 ---
 
 # Lessons Completed
 
-## 01. Modules & Imports
+## 01. Modules and Imports
 
 ### Topics Covered
 
-- What is a module
-- Why modules exist
-- Organizing code into multiple files
+- What a Python module is
+- Why applications use multiple files
 - Creating custom modules
-- Importing modules
+- Importing an entire module
 - Importing specific functions
 - Importing multiple functions
 - Module aliases
 - Function aliases
-- Calling functions from other modules
-- Multi-file Python applications
+- Calling functions across files
+- Avoiding wildcard imports
 
-Files:
+### Import Styles
 
-- billing.py
-- customers.py
-- main.py
+```python
+import billing
+```
+
+```python
+import billing as bill
+```
+
+```python
+from billing import calculate_bill
+```
+
+```python
+from billing import (
+    calculate_bill,
+    print_invoice,
+)
+```
+
+```python
+from billing import (
+    calculate_bill as calc_bill,
+    print_invoice as invoice,
+)
+```
+
+### Files
+
+- `billing.py`
+- `customers.py`
+- `main.py`
 
 ---
 
@@ -34,18 +63,24 @@ Files:
 
 ### Topics Covered
 
-- Global variables
-- Local variables
-- Variable shadowing
+- Global scope
+- Local scope
 - Function scope
 - Parameter scope
+- Variable shadowing
+- Separate local scopes for different functions
+- Reading global variables from functions
 - The `global` keyword
-- Passing data through function parameters
-- Why global variables are generally avoided
+- Passing data through parameters
+- Avoiding unnecessary global state
 
-Files:
+### Key Principle
 
-- 02_scope.py
+Functions should normally receive the data they need through parameters instead of depending on global variables.
+
+### File
+
+- `02_scope.py`
 
 ---
 
@@ -56,61 +91,169 @@ Files:
 - Creating tuples
 - Tuple indexing
 - Negative indexing
+- Tuple length
 - Tuple immutability
-- Tuple unpacking
-- Extended unpacking (`*`)
+- Basic tuple unpacking
+- Extended unpacking using `*`
 - Nested unpacking
 - Tuple packing
-- Variable swapping using tuples
-- Practical use of tuples with `zip()`
-- Practical use of tuples with `enumerate()`
-- Practical use of tuples with `dict.items()`
+- Variable swapping
+- Unpacking values from `zip()`
+- Unpacking values from `enumerate()`
+- Unpacking key-value pairs from `dict.items()`
 
-Files:
+### Key Principle
 
-- 03_tuples.py
+Tuples are ordered collections that cannot be modified after creation.
+
+### File
+
+- `03_tuples.py`
 
 ---
-
-# Upcoming Lessons
-
-- Sets
-- Exception Handling
-- List Comprehensions
-- File Handling
-- Packages
-- Virtual Environments
-
 
 ## 04. Sets
 
 ### Topics Covered
 
 - Creating sets
-- Set constructor (`set()`)
-- Empty sets
+- Creating an empty set
+- Converting lists and tuples into sets
+- Removing duplicate values
 - Unordered collections
 - Unique values
-- Removing duplicates
-- Membership testing (`in`)
-- Adding elements (`add`)
-- Removing elements (`remove`)
-- Safe removal (`discard`)
-- Clearing a set (`clear`)
-- Iterating over sets
-- Union (`|`)
-- Intersection (`&`)
-- Difference (`-`)
-- Symmetric Difference (`^`)
+- Membership testing with `in`
+- Adding values with `add()`
+- Removing values with `remove()`
+- Safe removal with `discard()`
+- Clearing sets with `clear()`
+- Iterating through sets
+- Union
+- Intersection
+- Difference
+- Symmetric difference
 
-Files:
+### Set Operators
 
-- 04_sets.py
+```python
+A | B
+```
 
-# Upcoming Lessons
+Union: everything from both sets.
 
-- Exception Handling
-- List Comprehensions
-- File Handling
-- Packages
-- Virtual Environments
+```python
+A & B
+```
+
+Intersection: values common to both sets.
+
+```python
+A - B
+```
+
+Difference: values in `A` but not in `B`.
+
+```python
+A ^ B
+```
+
+Symmetric difference: values found in exactly one set.
+
+### File
+
+- `04_sets.py`
+
+---
+
+## 05. Exception Handling
+
+### Topics Covered
+
+- Runtime exceptions
+- Program termination after an unhandled exception
+- `try`
+- `except`
+- Catching specific exceptions
+- Multiple `except` blocks
+- Exception matching
+- Exception hierarchy
+- General `Exception` handlers
+- Correct exception-handler ordering
+- `else`
+- `finally`
+- Cleanup logic
+- Continuing execution after handled exceptions
+
+### Exceptions Practiced
+
+- `NameError`
+- `KeyError`
+- `TypeError`
+- `ValueError`
+- `ZeroDivisionError`
+- `FileNotFoundError`
+
+### Complete Structure
+
+```python
+try:
+    # Risky code
+
+except ValueError:
+    # Handle invalid values
+
+except ZeroDivisionError:
+    # Handle division by zero
+
+except Exception:
+    # Handle unexpected exceptions
+
+else:
+    # Run only if the try block succeeds
+
+finally:
+    # Run no matter what
+```
+
+### Key Principles
+
+- Catch specific exceptions whenever possible.
+- Put specific exception handlers before general handlers.
+- The first matching `except` block handles the exception.
+- An exception immediately stops the remaining code in the `try` block.
+- `else` runs only when the entire `try` block succeeds.
+- `finally` runs whether the operation succeeds or fails.
+- Use `finally` for cleanup that must happen even after an uncaught exception or early exit.
+
+### File
+
+- `05_exception_handling.py`
+
+---
+
+# Intermediate Python Progress
+
+- ✅ Modules and Imports
+- ✅ Variable Scope
+- ✅ Tuples
+- ✅ Sets
+- ✅ Exception Handling
+- ⏳ List Comprehensions
+- ⏳ File Handling
+- ⏳ Packages
+- ⏳ Virtual Environments
+
+---
+
+# Upcoming Lesson
+
+## 06. List Comprehensions
+
+Planned topics:
+
+- Creating lists with compact loop syntax
+- Adding conditions to comprehensions
+- Transforming data
+- Filtering customer records
+- Comparing standard loops with comprehensions
+- Avoiding unreadable comprehensions
