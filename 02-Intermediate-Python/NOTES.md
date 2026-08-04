@@ -4,14 +4,18 @@
 
 # 1. Modules
 
+## What is a Module?
+
 A module is simply a Python (.py) file.
 
-Modules help organize applications into reusable components.
+Modules help organize large applications into smaller, reusable components.
 
 Example:
 
 billing.py
+
 customers.py
+
 main.py
 
 ---
@@ -24,7 +28,7 @@ import billing
 billing.calculate_bill()
 ```
 
-Preferred when using many functions from the same module.
+Preferred when using many functions.
 
 ---
 
@@ -32,11 +36,7 @@ Preferred when using many functions from the same module.
 
 ```python
 import billing as bill
-
-bill.calculate_bill()
 ```
-
-Common for long module names.
 
 Examples:
 
@@ -48,15 +48,11 @@ import matplotlib.pyplot as plt
 
 ---
 
-## Import Specific Function
+## Import Specific Functions
 
 ```python
 from billing import calculate_bill
-
-calculate_bill()
 ```
-
-Useful when importing only one or two functions.
 
 ---
 
@@ -71,7 +67,7 @@ from billing import (
 
 ---
 
-## Function Aliases
+## Function Alias
 
 ```python
 from billing import (
@@ -79,8 +75,6 @@ from billing import (
     print_invoice as invoice,
 )
 ```
-
-Useful for readability and avoiding naming conflicts.
 
 ---
 
@@ -92,15 +86,12 @@ from billing import *
 
 Reason:
 
-- Imports everything
-- Can create name collisions
-- Makes code harder to understand
+- Harder to read
+- Possible naming conflicts
 
 ---
 
 # 2. Variable Scope
-
----
 
 ## Global Scope
 
@@ -110,48 +101,38 @@ Variables created outside functions.
 customer = "John Smith"
 ```
 
-Accessible throughout the module unless shadowed.
-
 ---
 
 ## Local Scope
 
 Variables created inside functions.
 
-```python
-def update_customer():
-    customer = "Mary Johnson"
-```
-
-Exist only while the function is executing.
-
-After the function finishes, they are destroyed.
+They exist only while the function executes.
 
 ---
 
 ## Variable Shadowing
 
-A local variable with the same name as a global variable temporarily hides the global variable inside that function.
+A local variable hides a global variable with the same name.
+
+---
+
+## Parameters
+
+Function parameters are local variables.
 
 ```python
-customer = "John"
-
-def func():
-    customer = "Mary"
+def print_customer(customer):
 ```
-
-Inside `func()`, Python uses `"Mary"`.
-
-Outside, Python still uses `"John"`.
 
 ---
 
 ## Scope Search Order
 
-Python looks for variables in this order:
+Python searches:
 
-1. Local scope
-2. Global scope
+1. Local Scope
+2. Global Scope
 
 If not found:
 
@@ -161,55 +142,161 @@ NameError
 
 ---
 
-## Parameters Create Local Variables
-
-```python
-def print_customer(customer):
-    print(customer)
-```
-
-The parameter `customer` is a local variable.
-
-Every function call gets its own local scope.
-
----
-
-## Each Function Has Its Own Local Scope
-
-Functions cannot access another function's local variables.
-
-Each function receives only:
-
-- Its own local variables
-- Global variables
-
----
-
 ## global Keyword
 
 ```python
-customer = "John"
-
-def update():
-    global customer
-    customer = "Mary"
+global customer
 ```
 
-The `global` keyword tells Python to modify the global variable instead of creating a local one.
+Allows modification of a global variable.
+
+Use sparingly.
 
 ---
 
-## Professional Recommendation
+# 3. Tuples
 
-Prefer passing data through parameters and returning results.
+## What is a Tuple?
 
-Avoid using `global` unless absolutely necessary.
-
-Good:
+A tuple is an ordered, immutable collection.
 
 ```python
-def update_customer(customer):
-    return "Mary Johnson"
+customer = (
+    "John Smith",
+    "MTR-001",
+    842,
+    True
+)
 ```
 
-Better design than modifying global state.
+---
+
+## Tuple Indexing
+
+```python
+customer[0]
+customer[1]
+customer[-1]
+```
+
+Negative indexing starts from the end.
+
+---
+
+## Immutable
+
+Tuples cannot be modified.
+
+Invalid:
+
+```python
+customer[0] = "Mary"
+```
+
+Produces:
+
+```
+TypeError
+```
+
+---
+
+## Tuple Unpacking
+
+```python
+name, meter, usage, solar = customer
+```
+
+Python assigns each tuple value to a variable.
+
+---
+
+## Extended Unpacking
+
+```python
+first, *rest = customer
+```
+
+```python
+*rest, last = customer
+```
+
+```python
+first, *middle, last = customer
+```
+
+The starred variable always becomes a **list**.
+
+---
+
+## Nested Unpacking
+
+```python
+customer = (
+    "John",
+    ("MTR-001", 842),
+    True
+)
+
+name, (meter, usage), solar = customer
+```
+
+---
+
+## Packing
+
+Python automatically packs values into tuples.
+
+Example:
+
+```python
+a = 10
+b = 20
+
+a, b = b, a
+```
+
+Conceptually:
+
+```python
+a, b = (b, a)
+```
+
+followed by tuple unpacking.
+
+---
+
+## Common Error
+
+```python
+name, meter = customer
+```
+
+Error:
+
+```
+ValueError:
+too many values to unpack
+```
+
+Reason:
+
+The number of variables must match the number of values unless using `*`.
+
+---
+
+## Where Tuple Unpacking Appears
+
+```python
+zip()
+```
+
+```python
+enumerate()
+```
+
+```python
+dict.items()
+```
+
+These all return tuples that Python unpacks automatically.

@@ -8,7 +8,7 @@ This module focuses on writing Python the way professional software projects are
 
 ## 01. Modules & Imports
 
-Topics Covered:
+### Topics Covered
 
 - What is a module
 - Why modules exist
@@ -32,7 +32,7 @@ Files:
 
 ## 02. Variable Scope
 
-Topics Covered:
+### Topics Covered
 
 - Global variables
 - Local variables
@@ -40,8 +40,8 @@ Topics Covered:
 - Function scope
 - Parameter scope
 - The `global` keyword
-- Why global variables are generally avoided
 - Passing data through function parameters
+- Why global variables are generally avoided
 
 Files:
 
@@ -49,9 +49,31 @@ Files:
 
 ---
 
+## 03. Tuples
+
+### Topics Covered
+
+- Creating tuples
+- Tuple indexing
+- Negative indexing
+- Tuple immutability
+- Tuple unpacking
+- Extended unpacking (`*`)
+- Nested unpacking
+- Tuple packing
+- Variable swapping using tuples
+- Practical use of tuples with `zip()`
+- Practical use of tuples with `enumerate()`
+- Practical use of tuples with `dict.items()`
+
+Files:
+
+- 03_tuples.py
+
+---
+
 # Upcoming Lessons
 
-- Tuples (Deep Dive)
 - Sets
 - Exception Handling
 - List Comprehensions
