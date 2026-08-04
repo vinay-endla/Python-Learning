@@ -80,3 +80,37 @@ Files:
 - File Handling
 - Packages
 - Virtual Environments
+
+
+## 04. Sets
+
+### Topics Covered
+
+- Creating sets
+- Set constructor (`set()`)
+- Empty sets
+- Unordered collections
+- Unique values
+- Removing duplicates
+- Membership testing (`in`)
+- Adding elements (`add`)
+- Removing elements (`remove`)
+- Safe removal (`discard`)
+- Clearing a set (`clear`)
+- Iterating over sets
+- Union (`|`)
+- Intersection (`&`)
+- Difference (`-`)
+- Symmetric Difference (`^`)
+
+Files:
+
+- 04_sets.py
+
+# Upcoming Lessons
+
+- Exception Handling
+- List Comprehensions
+- File Handling
+- Packages
+- Virtual Environments

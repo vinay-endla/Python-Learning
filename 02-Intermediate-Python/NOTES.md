@@ -300,3 +300,223 @@ dict.items()
 ```
 
 These all return tuples that Python unpacks automatically.
+
+---
+
+# 4. Sets
+
+## What is a Set?
+
+A set is an unordered, mutable collection of unique values.
+
+```python
+customers = {
+    "John",
+    "Mary",
+    "David"
+}
+```
+
+---
+
+## Properties
+
+- Unordered
+- Mutable
+- Stores unique values
+- No indexing
+
+---
+
+## Creating Sets
+
+```python
+customers = {
+    "John",
+    "Mary"
+}
+```
+
+or
+
+```python
+customers = set()
+```
+
+---
+
+## Empty Set
+
+```python
+{}
+```
+
+Creates a dictionary.
+
+```python
+set()
+```
+
+Creates an empty set.
+
+---
+
+## Remove Duplicates
+
+```python
+meters = [
+    "MTR-001",
+    "MTR-002",
+    "MTR-001"
+]
+
+unique = set(meters)
+```
+
+Result:
+
+```
+{
+    "MTR-001",
+    "MTR-002"
+}
+```
+
+---
+
+## Membership Testing
+
+```python
+"John" in customers
+```
+
+Returns True or False.
+
+---
+
+## Add
+
+```python
+customers.add("Sarah")
+```
+
+Duplicate values are ignored.
+
+---
+
+## Remove
+
+```python
+customers.remove("Mary")
+```
+
+Raises:
+
+```
+KeyError
+```
+
+if the element does not exist.
+
+---
+
+## Discard
+
+```python
+customers.discard("Mary")
+```
+
+Does nothing if the element is missing.
+
+---
+
+## Clear
+
+```python
+customers.clear()
+```
+
+Removes every element.
+
+---
+
+## Iteration
+
+```python
+for customer in customers:
+    print(customer)
+```
+
+Sets cannot be indexed.
+
+---
+
+## Set Operations
+
+### Union
+
+```python
+A | B
+```
+
+Everything from both sets.
+
+Mathematics:
+
+```
+A ∪ B
+```
+
+---
+
+### Intersection
+
+```python
+A & B
+```
+
+Common elements.
+
+Mathematics:
+
+```
+A ∩ B
+```
+
+---
+
+### Difference
+
+```python
+A - B
+```
+
+Elements in A but not in B.
+
+---
+
+### Symmetric Difference
+
+```python
+A ^ B
+```
+
+Elements that belong to exactly one set.
+
+Equivalent to:
+
+```
+(A - B) ∪ (B - A)
+```
+
+---
+
+## Professional Uses
+
+- Remove duplicates
+- Fast membership testing
+- Compare datasets
+- Find common records
+- Find missing records
+- Data analysis
+- AI preprocessing
