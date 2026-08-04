@@ -926,3 +926,226 @@ finally:
 - Use `else` for success-dependent logic.
 - Use `finally` for guaranteed cleanup.
 - Provide useful messages rather than vague output.
+
+---
+
+# 6. List Comprehensions
+
+## Why List Comprehensions?
+
+Many loops follow the same pattern:
+
+```python
+new_list = []
+
+for item in items:
+    new_list.append(...)
+```
+
+List comprehensions provide a shorter, more readable way to express this pattern.
+
+---
+
+## Pattern 1 — Transform
+
+Traditional:
+
+```python
+squares = []
+
+for number in numbers:
+    squares.append(number ** 2)
+```
+
+List Comprehension:
+
+```python
+squares = [
+    number ** 2
+    for number in numbers
+]
+```
+
+Read as:
+
+> For each number in numbers, produce its square.
+
+---
+
+## Pattern 2 — Filter
+
+Traditional:
+
+```python
+high_usage = []
+
+for usage in monthly_usage:
+    if usage > 1000:
+        high_usage.append(usage)
+```
+
+List Comprehension:
+
+```python
+high_usage = [
+    usage
+    for usage in monthly_usage
+    if usage > 1000
+]
+```
+
+Read as:
+
+> For each usage in monthly_usage, if usage is greater than 1000, produce usage.
+
+Filtering removes items from the resulting list.
+
+---
+
+## Pattern 3 — Conditional Transformation
+
+Traditional:
+
+```python
+usage_status = []
+
+for usage in monthly_usage:
+    if usage > 1000:
+        usage_status.append("High Usage")
+    else:
+        usage_status.append("Normal Usage")
+```
+
+List Comprehension:
+
+```python
+usage_status = [
+    "High Usage" if usage > 1000 else "Normal Usage"
+    for usage in monthly_usage
+]
+```
+
+Read as:
+
+> For each usage in monthly_usage, produce "High Usage" if usage is greater than 1000; otherwise produce "Normal Usage".
+
+Every element is transformed.
+
+No elements are removed.
+
+---
+
+## Reading a List Comprehension
+
+General pattern:
+
+```python
+[
+    expression
+    for variable in iterable
+]
+```
+
+Read as:
+
+> For each variable in iterable, produce expression.
+
+---
+
+## Filter vs Conditional Transformation
+
+Filtering:
+
+```python
+[
+    usage
+    for usage in monthly_usage
+    if usage > 1000
+]
+```
+
+Result:
+
+```python
+[1200, 1800]
+```
+
+Only matching items remain.
+
+---
+
+Conditional Transformation:
+
+```python
+[
+    "High" if usage > 1000 else "Normal"
+    for usage in monthly_usage
+]
+```
+
+Result:
+
+```python
+[
+    "Normal",
+    "High",
+    "Normal",
+    "High"
+]
+```
+
+Every original element produces one output element.
+
+---
+
+## Decision Guide
+
+Ask yourself:
+
+### Do I want every item?
+
+Yes
+
+→ Transform
+
+```python
+[
+    expression
+    for item in items
+]
+```
+
+---
+
+Yes, but differently depending on a condition
+
+```python
+[
+    A if condition else B
+    for item in items
+]
+```
+
+---
+
+No
+
+→ Filter
+
+```python
+[
+    expression
+    for item in items
+    if condition
+]
+```
+
+---
+
+## Professional Recommendations
+
+- Prefer list comprehensions for simple transformations.
+- Prefer standard loops when the logic becomes complex.
+- Keep comprehensions readable.
+- One clear comprehension is better than several nested conditions.
+- If readability suffers, use a normal loop.

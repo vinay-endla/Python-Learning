@@ -245,15 +245,69 @@ finally:
 
 ---
 
-# Upcoming Lesson
-
 ## 06. List Comprehensions
 
-Planned topics:
+### Topics Covered
 
-- Creating lists with compact loop syntax
-- Adding conditions to comprehensions
-- Transforming data
-- Filtering customer records
-- Comparing standard loops with comprehensions
-- Avoiding unreadable comprehensions
+- Why list comprehensions exist
+- Transforming every element
+- Filtering elements
+- Conditional transformations
+- Reading comprehensions in plain English
+- Comparing loops with comprehensions
+- Writing clean, readable comprehensions
+
+### Patterns Learned
+
+#### Transform
+
+```python
+[
+    expression
+    for variable in iterable
+]
+```
+
+#### Filter
+
+```python
+[
+    expression
+    for variable in iterable
+    if condition
+]
+```
+
+#### Conditional Transform
+
+```python
+[
+    expression_if_true if condition else expression_if_false
+    for variable in iterable
+]
+```
+
+### Key Principles
+
+- List comprehensions replace common loop + append patterns.
+- They do not introduce a new looping algorithm.
+- Read them as:
+  - "For each item in collection, produce ..."
+- Use a trailing `if` to **filter** items.
+- Use `if...else` inside the expression to **transform** every item.
+
+### File
+
+- `06_list_comprehensions.py`
+
+# Intermediate Python Progress
+
+- ✅ Modules and Imports
+- ✅ Variable Scope
+- ✅ Tuples
+- ✅ Sets
+- ✅ Exception Handling
+- ✅ List Comprehensions
+- ⏳ File Handling
+- ⏳ Packages
+- ⏳ Virtual Environments
